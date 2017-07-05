@@ -9,7 +9,7 @@
   <script type="text/javascript">
    loopFunctions = [];
     function gameSprite(texture){
-      this=new PIXI.Sprite(texture);
+      PIXI.Sprite.call(this,texture);
       //X and Y Velocity
       this.vx=0;
       this.vy=0;
