@@ -7,6 +7,22 @@
   <script src="pixi.min.js"></script>
 <body>
   <script type="text/javascript">
+   loopFunctions = [];
+    function gameSprite(texture){
+      this=new PIXI.Sprite(texture);
+      //X and Y Velocity
+      this.vx=0;
+      this.vy=0;
+      this.prototype.loop = new function();
+      loopFunctions.push(this.loopTasks);
+    };
+    gameSprite.prototype = Object.create(PIXI.Sprite.prototype);
+    gameSprite.prototype.constructor = gameSprite;
+    gameSprite.prototype.loopTasks = function(){
+      this.x += vx;
+      this.y += vy;
+      loop();
+    };
     
    //Create the renderer
 var renderer = PIXI.autoDetectRenderer(256, 256);
@@ -31,7 +47,10 @@ var stage = new PIXI.Container();
       renderer.render(stage);
       gameLoop();
     }function gameLoop(){
-     car.x += 1;
+     car.x+=1;
+      loopFunctions.map(function(func){
+        func();
+      });
       renderer.render(stage);
       requestAnimationFrame(gameLoop);
     }
