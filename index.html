@@ -32,6 +32,7 @@ var stage = new PIXI.Container();
       gameLoop();
     }function gameLoop(){
      car.x += 1;
+      renderer.render(stage);
       requestAnimationFrame(gameLoop);
     }
   </script>
