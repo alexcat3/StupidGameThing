@@ -19,8 +19,8 @@
     gameSprite.prototype = Object.create(PIXI.Sprite.prototype);
     gameSprite.prototype.constructor = gameSprite;
     gameSprite.prototype.loopTasks = function(){
-      this.x += vx;
-      this.y += vy;
+      this.x += this.vx;
+      this.y += this.vy;
       loop();
     };
     
