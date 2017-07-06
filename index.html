@@ -41,6 +41,7 @@ var stage = new PIXI.Container();
       car= new gameSprite(
         PIXI.loader.resources['Car.png'].texture
       );
+      car.vx=1;
       stage.addChild(car);
       
       //Tell the `renderer` to `render` the `stage`
