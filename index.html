@@ -7,14 +7,14 @@
   <script src="pixi.min.js"></script>
 <body>
   <script type="text/javascript">
-   loopFunctions = [];
+   gameSpriteObjects = [];
     function gameSprite(texture){
       PIXI.Sprite.call(this,texture);
       //X and Y Velocity
       this.vx=0;
       this.vy=0;
       this.loop = function(){ return; };
-      loopFunctions.push(this.loopTasks);
+      gameSpriteObjects.push(this);
     };
     gameSprite.prototype = Object.create(PIXI.Sprite.prototype);
     gameSprite.prototype.constructor = gameSprite;
@@ -47,8 +47,8 @@ var stage = new PIXI.Container();
       renderer.render(stage);
       gameLoop();
     }function gameLoop(){
-      loopFunctions.map(function(func){
-        func();
+      gameSpriteObjects.map(function(obj){
+        obj.loopTasks();
       });
       renderer.render(stage);
       requestAnimationFrame(gameLoop);
