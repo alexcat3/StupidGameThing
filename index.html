@@ -13,7 +13,7 @@
       //X and Y Velocity
       this.vx=0;
       this.vy=0;
-      this.loop = new function(){ return; };
+      this.loop = function(){ return; };
       loopFunctions.push(this.loopTasks);
     };
     gameSprite.prototype = Object.create(PIXI.Sprite.prototype);
