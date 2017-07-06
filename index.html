@@ -26,34 +26,41 @@
     
    //Create the renderer
 var renderer = PIXI.autoDetectRenderer(1024,512);
-
 //Add the canvas to the HTML document
 document.body.appendChild(renderer.view);
-
 //Create a container object called the `stage`
 var stage = new PIXI.Container();
-    
    //Add game resources
-    PIXI.loader.add('Car.png').load(setUp);
+    loader = PIXI.loader.add('Car.png')
+     loader.add('sheep.png');
+    loader.load(setUp);
+   
     //Once resources are loaded, setup the game
-    function setUp(){
+    function setUp(){  
       //Add car sprite
       car= new gameSprite(
         PIXI.loader.resources['Car.png'].texture
       );
-      car.vx=1;
       stage.addChild(car);
-      
-      //Tell the `renderer` to `render` the `stage`
-      renderer.render(stage);
+      //Scrolling Container
+      contaier
+      //Start main loop
       gameLoop();
-    }function gameLoop(){
+    }
+    
+    //This is called every frame
+    function gameLoop(){
+      //Call sprite class loops
       gameSpriteObjects.map(function(obj){
         obj.loopTasks();
       });
+      //Draw the stage
       renderer.render(stage);
       requestAnimationFrame(gameLoop);
+    
     }
+    
+    
   </script>
 </body>
 </html>
