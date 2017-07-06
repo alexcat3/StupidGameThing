@@ -38,7 +38,7 @@ var stage = new PIXI.Container();
     //Once resources are loaded, setup the game
     function setUp(){
       //Add car sprite
-      car= new PIXI.gameSprite(
+      car= new gameSprite(
         PIXI.loader.resources['Car.png'].texture
       );
       stage.addChild(car);
