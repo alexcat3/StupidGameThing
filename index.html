@@ -12,8 +12,8 @@
           console.log(this);
     console.log(this instanceof PIXI.Sprite);
       if(bar && bar.type == 'tiling'){
-        console.log(this instanceof PIXI.Sprite);
         if(bar.width && bar.height){
+          console.log(this instanceof PIXI.Sprite);
           PIXI.extras.TilingSprite.call(this,texture,bar.width,bar.height);
         }else{
          console.log("Error: Width and height must be given for tiling sprites");
