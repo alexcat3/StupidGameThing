@@ -32,7 +32,7 @@ document.body.appendChild(renderer.view);
 var stage = new PIXI.Container();
    //Add game resources
     loader = PIXI.loader.add('Car.png')
-     loader.add('sheep.png');
+     loader.add('Road.png');
     loader.load(setUp);
    
     //Once resources are loaded, setup the game
@@ -42,15 +42,18 @@ var stage = new PIXI.Container();
         PIXI.loader.resources['Car.png'].texture
       );
       stage.addChild(car);
-      //Scrolling Container
-      contaier
+      //Add road
+      road = new gameSprite(
+          PIXI.loader.resources['Road.png'].texture
+        );
+      road.vx = 3;
       //Start main loop
       gameLoop();
     }
     
     //This is called every frame
     function gameLoop(){
-      //Call sprite class loops
+      //Call the loop functions of all game sprites
       gameSpriteObjects.map(function(obj){
         obj.loopTasks();
       });
