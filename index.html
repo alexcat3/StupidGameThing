@@ -27,7 +27,7 @@
       gameSpriteObjects.push(this);
     };
     
-    gameSprite.prototype = Object.create(PIXI.Sprite.prototype);
+    gameSprite.prototype = Object.create(PIXI.extras.TilingSprite.prototype);
     gameSprite.prototype.constructor = gameSprite;
     gameSprite.prototype.loopTasks = function(){
       this.x += this.vx;
