@@ -8,9 +8,9 @@
 <body>
   <script type="text/javascript">
    gameSpriteObjects = [];
-    console.log(this);
-    console.log(this instanceof PIXI.Sprite);
     function gameSprite(texture,bar){
+          console.log(this);
+    console.log(this instanceof PIXI.Sprite);
       if(bar && bar.type == 'tiling'){
         if(bar.width && bar.height){
           PIXI.extras.TilingSprite.call(this,texture,bar.width,bar.height);
