@@ -54,7 +54,7 @@ var stage = new PIXI.Container();
       //Add road
       road = new gameSprite(
           PIXI.loader.resources['Road.png'].texture,
-          {width:280,height:160}
+          {type:'tiling',width:280,height:160}
         );
       road.vx = 3;
       //Start main loop
