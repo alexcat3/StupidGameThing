@@ -39,9 +39,7 @@ document.body.appendChild(renderer.view);
 //Create a container object called the `stage`
 var stage = new PIXI.Container();
    //Add game resources
-    loader = PIXI.loader.add('Car.png')
-     loader.add('Road.png');
-    loader.load(setUp);
+    loader = PIXI.loader.add('Car.png').add('Road.png').load(setUp);
    
     //Once resources are loaded, setup the game
     function setUp(){  
@@ -52,7 +50,8 @@ var stage = new PIXI.Container();
       stage.addChild(car);
       //Add road
       road = new gameSprite(
-          PIXI.loader.resources['Road.png'].texture
+          PIXI.loader.resources['Road.png'].texture,
+          {type:tiling,width:280,height:160}
         );
       road.vx = 3;
       //Start main loop
