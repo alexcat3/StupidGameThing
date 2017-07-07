@@ -8,6 +8,8 @@
 <body>
   <script type="text/javascript">
    gameSpriteObjects = [];
+    console.log(this);
+    console.log(this instanceof PIXI.Sprite);
     function gameSprite(texture,bar){
       if(bar && bar.type == 'tiling'){
         if(bar.width && bar.height){
