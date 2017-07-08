@@ -8,17 +8,7 @@
 <body>
   <script type="text/javascript">
    gameSpriteObjects = [];
-    function gameSprite(texture,bar){
-          console.log(this);
-    console.log(this instanceof PIXI.Sprite);
-      if(bar && bar.type == 'tiling'){
-        if(bar.width && bar.height){
-          console.log(this instanceof PIXI.Sprite);
-          PIXI.extras.TilingSprite.call(this,texture,bar.width,bar.height);
-        }else{
-         console.log("Error: Width and height must be given for tiling sprites");
-        }
-       }
+    function gameSprite(texture){
       PIXI.Sprite.call(this,texture);
       //X and Y Velocity
       this.vx=0;
@@ -26,8 +16,13 @@
       this.loop = function(){ return; };
       gameSpriteObjects.push(this);
     };
+    function tilingGameSprite(texture){
+      gameSprite.call(this,texture);
+      PIXI.extras.TilingSprite.call(this,texture);
+    }tilingGameSprite.prototype = PIXI.extras.TilingSprite.prototype;
+    tilingGameSprite.prototype.constructor = tilingGameSprite;
     
-    gameSprite.prototype = Object.create(PIXI.extras.TilingSprite.prototype);
+    gameSprite.prototype = Object.create(PIXI.Sprite.prototype);
     gameSprite.prototype.constructor = gameSprite;
     gameSprite.prototype.loopTasks = function(){
       this.x += this.vx;
