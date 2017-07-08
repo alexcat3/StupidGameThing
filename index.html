@@ -16,9 +16,9 @@
       this.loop = function(){ return; };
       gameSpriteObjects.push(this);
     };
-    function tilingGameSprite(texture){
+    function tilingGameSprite(texture,width,height){
       gameSprite.call(this,texture);
-      PIXI.extras.TilingSprite.call(this,texture);
+      PIXI.extras.TilingSprite.call(this,texture,width,height);
     }tilingGameSprite.prototype = PIXI.extras.TilingSprite.prototype;
     tilingGameSprite.prototype.constructor = tilingGameSprite;
     
@@ -47,9 +47,9 @@ var stage = new PIXI.Container();
       );
       stage.addChild(car);
       //Add road
-      road = new gameSprite(
+      road = new tilingGameSprite(
           PIXI.loader.resources['Road.png'].texture,
-          {type:'tiling',width:280,height:160}
+        280,160
         );
       road.vx = 3;
       //Start main loop
