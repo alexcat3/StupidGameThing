@@ -16,19 +16,20 @@
       this.loop = function(){ return; };
       gameSpriteObjects.push(this);
     };
-    function tilingGameSprite(texture,width,height){
-      gameSprite.call(this,texture);
-      PIXI.extras.TilingSprite.call(this,texture,width,height);
-    }tilingGameSprite.prototype = PIXI.extras.TilingSprite.prototype;
-    tilingGameSprite.prototype.constructor = tilingGameSprite;
-    
-    gameSprite.prototype = Object.create(PIXI.Sprite.prototype);
+        gameSprite.prototype = Object.create(PIXI.Sprite.prototype);
     gameSprite.prototype.constructor = gameSprite;
     gameSprite.prototype.loopTasks = function(){
       this.x += this.vx;
       this.y += this.vy;
       this.loop();
     };
+    function tilingGameSprite(texture,width,height){
+      gameSprite.call(this,texture);
+      PIXI.extras.TilingSprite.call(this,texture,width,height);
+    }tilingGameSprite.prototype = PIXI.extras.TilingSprite.prototype;
+    tilingGameSprite.prototype.constructor = tilingGameSprite;
+    tilingGameSprite.prototype.loopTasks = gameSprite.prototype.loopTasks;
+
     
    //Create the renderer
 var renderer = PIXI.autoDetectRenderer(1024,512);
