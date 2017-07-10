@@ -24,8 +24,11 @@
       this.loop();
     };
     function tilingGameSprite(texture,width,height){
-      gameSprite.call(this,texture);
       PIXI.extras.TilingSprite.call(this,texture,width,height);
+      this.vx=0;
+      this.vy=0;
+      this.loop=function(){return;}
+      gameSpriteObjects.push(this);
     }tilingGameSprite.prototype = PIXI.extras.TilingSprite.prototype;
     tilingGameSprite.prototype.constructor = tilingGameSprite;
     tilingGameSprite.prototype.loopTasks = gameSprite.prototype.loopTasks;
