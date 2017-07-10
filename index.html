@@ -16,7 +16,7 @@
       this.loop = function(){ return; };
       gameSpriteObjects.push(this);
     };
-        gameSprite.prototype = Object.create(PIXI.Sprite.prototype);
+    gameSprite.prototype = Object.create(PIXI.Sprite.prototype);
     gameSprite.prototype.constructor = gameSprite;
     gameSprite.prototype.loopTasks = function(){
       this.x += this.vx;
@@ -53,6 +53,7 @@ var stage = new PIXI.Container();
         280,160
         );
       road.vx = 3;
+      stage.addChild(road);
       //Start main loop
       gameLoop();
     }
