@@ -46,13 +46,7 @@ var stage = new PIXI.Container();
    
     //Once resources are loaded, setup the game
     function setUp(){  
-      //Add car sprite
-      car= new gameSprite(
-        PIXI.loader.resources['Car.png'].texture
-      );
-      car.y=150;
-      stage.addChild(car);
-      //Add road
+       //Add road
       road = new tilingGameSprite(
           PIXI.loader.resources['Road.png'].texture,
         1024,150
@@ -60,6 +54,14 @@ var stage = new PIXI.Container();
       road.y=200;
       road.vx = -3;
       stage.addChild(road);
+      
+      //Add car sprite
+      car= new gameSprite(
+        PIXI.loader.resources['Car.png'].texture
+      );
+      car.y=150;
+      stage.addChild(car);
+    
       //Start main loop
       gameLoop();
     }
