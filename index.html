@@ -29,7 +29,7 @@
       this.vy=0;
       this.loop=function(){return;}
       gameSpriteObjects.push(this);
-    }tilingGameSprite.prototype = PIXI.extras.TilingSprite.prototype;
+    }tilingGameSprite.prototype = Object.create(PIXI.extras.TilingSprite.prototype);
     tilingGameSprite.prototype.constructor = tilingGameSprite;
     tilingGameSprite.prototype.loopTasks = gameSprite.prototype.loopTasks;
 
