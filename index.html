@@ -73,7 +73,7 @@ var stage = new PIXI.Container();
         obj.loopTasks();
       });
       
-      if(Math.floor(Math.random()*60)==0){
+      if(Math.floor(Math.random()*60)==1){
         var sheep = new gameSprite(PIXI.loader.resources['sheep.png'].texture)
         sheep.y=Math.floor(Math.Random*100)
         road.addChild(sheep);
